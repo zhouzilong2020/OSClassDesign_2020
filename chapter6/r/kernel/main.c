@@ -103,7 +103,7 @@ void TestB()
 	int i = 0x1000;
 	while(1){
 		disp_str("B.");
-		milli_delay(10);
+		milli_delay(100);
 	}
 }
 
@@ -115,6 +115,6 @@ void TestC()
 	int i = 0x2000;
 	while(1){
 		disp_str("C.");
-		milli_delay(10);
+		milli_delay(100);
 	}
 }

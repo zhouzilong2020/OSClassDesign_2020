@@ -7,10 +7,10 @@
 
 
 typedef struct s_stackframe {	/* proc_ptr points here				↑ Low			*/
-	u32	gs;		/* ┓						│			*/
-	u32	fs;		/* ┃						│			*/
-	u32	es;		/* ┃						│			*/
-	u32	ds;		/* ┃						│			*/
+	u32	gs;			/* ┓						│			*/
+	u32	fs;			/* ┃						│			*/
+	u32	es;			/* ┃						│			*/
+	u32	ds;			/* ┃						│			*/
 	u32	edi;		/* ┃						│			*/
 	u32	esi;		/* ┣ pushed by save()				│			*/
 	u32	ebp;		/* ┃						│			*/
@@ -21,15 +21,15 @@ typedef struct s_stackframe {	/* proc_ptr points here				↑ Low			*/
 	u32	eax;		/* ┛						│			*/
 	u32	retaddr;	/* return address for assembly code save()	│			*/
 	u32	eip;		/*  ┓						│			*/
-	u32	cs;		/*  ┃						│			*/
+	u32	cs;			/*  ┃						│			*/
 	u32	eflags;		/*  ┣ these are pushed by CPU during interrupt	│			*/
 	u32	esp;		/*  ┃						│			*/
-	u32	ss;		/*  ┛						┷High			*/
+	u32	ss;			/*  ┛						┷High			*/
 }STACK_FRAME;
 
 
-typedef struct s_proc {
-	STACK_FRAME regs;          /* process registers saved in stack frame */
+typedef struct s_proc {	//存放进程有关状态
+	STACK_FRAME regs;          /* process registers saved in stack frame 原寄存器中的相关数值*/
 
 	u16 ldt_sel;               /* gdt selector giving ldt base and limit */
 	DESCRIPTOR ldts[LDT_SIZE]; /* local descriptors for code and data */

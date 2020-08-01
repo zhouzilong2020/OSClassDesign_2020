@@ -355,11 +355,11 @@ sys_call:
 ;				    restart
 ; ====================================================================================
 restart:
-	mov	esp, [p_proc_ready]
-	lldt	[esp + P_LDT_SEL]
+	mov	esp, [p_proc_ready]				;//p_proc_ready-->指向进程表的指针，存放下一个启动进程的进程表地址
+	lldt	[esp + P_LDT_SEL]			;//实际上存放的是ldt_sel
 	lea	eax, [esp + P_STACKTOP]
 	mov	dword [tss + TSS3_S_SP0], eax
-restart_reenter:
+restart_reenter:   
 	dec	dword [k_reenter]
 	pop	gs
 	pop	fs
